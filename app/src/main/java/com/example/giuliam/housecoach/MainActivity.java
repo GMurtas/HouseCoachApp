@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-       if(fragment != null){
+        if(fragment != null){
             cleanL.setVisibility(View.GONE);
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction ft = fragmentManager.beginTransaction();
