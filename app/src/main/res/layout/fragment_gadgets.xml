@@ -3,16 +3,69 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+   <ImageView
+       android:id="@+id/ivCat"
+       android:layout_width="120dp"
+       android:layout_height="120dp"
+       android:src="@drawable/cat"
+       android:layout_alignParentTop="true"
+       android:layout_marginTop="20dp"
+       />
 
+    <ImageView
+        android:id="@+id/ivDog"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/dog"
+        android:layout_below="@+id/ivCat"
+        android:layout_marginTop="20dp"/>
 
     <TextView
-        android:id="@+id/gadgetsF"
+        android:id="@+id/gName1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gadgets Fragment"
-        android:layout_centerInParent="true"/>
+        android:text="Lazy cat"
+        android:layout_toRightOf="@+id/ivCat"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/gName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Happy dog"
+        android:layout_toRightOf="@+id/ivDog"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/ivCat"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/b1"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/gName1"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@+id/ivCat"
+        android:layout_marginLeft="20dp"
+        android:background="@color/colorAccent"
+        android:text="BUY"
+        android:visibility="visible"/>
+
+    <Button
+        android:id="@+id/b2"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/gName2"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@+id/ivDog"
+        android:layout_marginLeft="20dp"
+        android:background="@color/colorAccent"
+        android:text="BUY"
+        android:visibility="visible"/>
+
+
+
 </RelativeLayout>
