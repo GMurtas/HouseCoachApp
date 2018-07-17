@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/task1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Throw out the garbage!"
+        android:textSize="25sp"
+        android:textColor="@color/darkgray"
+        />
+
+    <TextView
+        android:id="@+id/task2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Make laundry!"
+        android:layout_below="@id/task1"
+        android:layout_marginTop="20dp"
+        android:textSize="25sp"
+        android:textColor="@color/darkgray"
+        />
+
+    <TextView
+        android:id="@+id/task3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clean your room!"
+        android:layout_below="@id/task2"
+        android:layout_marginTop="20dp"
+        android:textSize="25sp"
+        android:textColor="@color/darkgray"
+        />
 
 
-    <ListView
-        android:id="@+id/TaskList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" />
+
 </RelativeLayout>

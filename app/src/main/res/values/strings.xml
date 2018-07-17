@@ -13,4 +13,10 @@
     <string name="login">Login</string>
     <string name="reg">Register</string>
     <string name="register_here">Register Here</string>
+    <string name="facebook_app_id">221623114699507</string>
+
+    <string name="user_exists">User already logged in</string>
+    <string name="sign_in_facebook">Log in with Facebook</string>
+    <string name="sign_in_google">Log in with Google</string>
+    <string name="logout_text">Log out</string>
 </resources>
