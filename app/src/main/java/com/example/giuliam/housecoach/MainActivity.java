@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -51,24 +52,27 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        ImageView cleanL = findViewById(R.id.cleanLogo);
+
         Fragment fragment = null;
         int id = item.getItemId();
 
         if (id == R.id.home) {
             fragment = new HomeFragment();
-            //getSupportActionBar().setTitle("Home");
+
         } else if (id == R.id.tasks) {
             fragment = new TasksFragment();
-            //getSupportActionBar().setTitle("Tasks");
+
         } else if (id == R.id.gadgets) {
             fragment = new GadgetsFragment();
-            //getSupportActionBar().setTitle("Gadgets");
+
         } else if (id == R.id.logout) {
         }
 
 
 
        if(fragment != null){
+            cleanL.setVisibility(View.GONE);
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction ft = fragmentManager.beginTransaction();
 
