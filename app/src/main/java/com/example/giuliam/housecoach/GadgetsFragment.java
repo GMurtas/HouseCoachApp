@@ -16,19 +16,19 @@ import java.util.List;
 public class GadgetsFragment extends android.support.v4.app.Fragment  {
 
     List<ItemGadget> itemGadgetList;
-    ListView listView;
+
     Context context;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tasks, null);
+        ListView listView = view.findViewById(R.id.listView);
+
 
         itemGadgetList = new ArrayList<>();
 
-        itemGadgetList.add(new ItemGadget(R.drawable.dog, "Happy dog"));
-        itemGadgetList.add(new ItemGadget(R.drawable.cat, "Lazy cat"));
-
-        ListView listView = getView().findViewById(R.id.listView);
+        itemGadgetList.add(new ItemGadget("Happy dog", "dog", "Buy"));
+        itemGadgetList.add(new ItemGadget("Lazy cat", "cat", "Buy"));
 
         listAdapter adapter = new listAdapter(context, itemGadgetList);
         listView.setAdapter(adapter);

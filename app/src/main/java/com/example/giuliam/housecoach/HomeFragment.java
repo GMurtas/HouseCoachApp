@@ -20,6 +20,11 @@ public class HomeFragment extends android.support.v4.app.Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.homeF);
+        view.findViewById(R.id.welcome);
+        view.findViewById(R.id.score);
+        view.findViewById(R.id.nScore);
+        view.findViewById(R.id.happy);
+        view.findViewById(R.id.thinking);
+        view.findViewById(R.id.angry);
     }
 }
