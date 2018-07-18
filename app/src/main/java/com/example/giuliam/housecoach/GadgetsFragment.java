@@ -16,7 +16,9 @@ import java.util.List;
 
 public class GadgetsFragment extends android.support.v4.app.Fragment  {
 
-    Context context;
+
+    public static int catClicked = 0;
+    public static int dogClicked = 0;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -40,12 +42,14 @@ public class GadgetsFragment extends android.support.v4.app.Fragment  {
             @Override
             public void onClick(View v) {
                b1.setVisibility(View.GONE);
+               catClicked = 1;
             }
         });
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 b2.setVisibility(View.GONE);
+                dogClicked = 1;
             }
         });
 
