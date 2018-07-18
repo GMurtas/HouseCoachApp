@@ -28,16 +28,22 @@ public class HomeFragment extends android.support.v4.app.Fragment {
         ImageView happy = view.findViewById(R.id.happy);
         ImageView angry = view.findViewById(R.id.angry);
         ImageView dog = view.findViewById(R.id.ivDog);
+        int garbage = model.GarbageLevel;
+        int dust = model.DustLevel;
+        int laundry = model.LaundryLevel;
 
-        if (model.GarbageLevel < 5 || model.DustLevel > 10 || model.LaundryLevel < 5) {
+
+
+        if (garbage < 5 || dust> 10 || laundry < 5) {
             //1 red, Angry face
             happy.setVisibility(View.GONE);
             angry.setVisibility(View.VISIBLE);
         }
 
-        if (model.gClicked == 1) {
+        /*if (model.gClicked == 1) {
             dog.setVisibility(View.VISIBLE);
-        }
+            score.setText("00");
+        }*/
 
 
 

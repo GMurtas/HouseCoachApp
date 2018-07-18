@@ -13,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.content.Context;
 import android.widget.TextView;
+import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
+
 
 import java.util.ArrayList;
 import java.util.List;
