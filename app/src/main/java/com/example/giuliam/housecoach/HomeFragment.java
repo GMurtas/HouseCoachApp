@@ -1,6 +1,7 @@
 package com.example.giuliam.housecoach;
 
 import android.app.Fragment;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -28,23 +29,22 @@ public class HomeFragment extends android.support.v4.app.Fragment {
         ImageView happy = view.findViewById(R.id.happy);
         ImageView angry = view.findViewById(R.id.angry);
         ImageView dog = view.findViewById(R.id.ivDog);
-        int garbage = model.GarbageLevel;
-        int dust = model.DustLevel;
-        int laundry = model.LaundryLevel;
+        model = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
 
-
-
-        if (garbage < 5 || dust> 10 || laundry < 5) {
+        if (model.angry >= 1) {
             //1 red, Angry face
             happy.setVisibility(View.GONE);
             angry.setVisibility(View.VISIBLE);
+        } else {
+            happy.setVisibility(View.VISIBLE);
+            angry.setVisibility(View.GONE);
         }
-
-        /*if (model.gClicked == 1) {
-            dog.setVisibility(View.VISIBLE);
-            score.setText("00");
-        }*/
-
+        if (model.angry == 0) {
+            score.setText("40");
+        }
+        if (model.angry == 0) {
+            score.setText("60");
+        }
 
 
         return view;}

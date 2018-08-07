@@ -32,6 +32,8 @@ public class GadgetsFragment extends android.support.v4.app.Fragment  {
         View view = inflater.inflate(R.layout.fragment_gadgets, null);
         TextView name = view.findViewById(R.id.gName);
         ImageView dog = view.findViewById(R.id.ivDog);
+
+
         return view;
         }
 
@@ -45,7 +47,7 @@ public class GadgetsFragment extends android.support.v4.app.Fragment  {
             @Override
             public void onClick(View v) {
                b.setVisibility(View.GONE);
-               model.gClicked = 1;
+               //model.gClicked = 1;
 
 
 
