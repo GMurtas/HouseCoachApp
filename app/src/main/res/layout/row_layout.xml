@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:id="@+id/tx_value1"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:text="Sensor1"
+        android:gravity="center"
+        android:textSize="20sp"
+        />
+
+    <ImageView
+        android:id="@+id/broom"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:src="@drawable/broom"
+        android:layout_toLeftOf="@id/tx_value1"
+        android:layout_marginRight="80dp"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:id="@+id/tx_value2"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:layout_below="@id/tx_value1"
+        android:text="Sensor2"
+        android:gravity="center"
+        />
+
+    <ImageView
+        android:id="@+id/laundry"
+        android:layout_width="51dp"
+        android:layout_height="51dp"
+        android:src="@drawable/laundry"
+        android:layout_toLeftOf="@id/tx_value2"
+        android:layout_marginRight="90dp"
+        android:layout_marginTop="87dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:id="@+id/tx_value3"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tx_value2"
+        android:text="Sensor3"
+        android:gravity="center"
+        />
+
+    <ImageView
+        android:id="@+id/bin"
+        android:layout_width="51dp"
+        android:layout_height="51dp"
+        android:src="@drawable/bin"
+        android:layout_toLeftOf="@id/tx_value3"
+        android:layout_marginRight="90dp"
+        android:layout_marginTop="162dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:id="@+id/tx_value4"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tx_value3"
+        android:text="Sensor4"
+        android:gravity="center"
+        />
+
+
+</RelativeLayout>

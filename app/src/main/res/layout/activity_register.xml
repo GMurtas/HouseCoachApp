@@ -40,7 +40,7 @@
         android:layout_below="@id/etUser"
         android:layout_marginTop="100dp"
         android:hint="@string/pass"
-        android:inputType="textCapCharacters|textPassword|numberPassword"
+        android:inputType="textPassword"
         />
 
     <Button

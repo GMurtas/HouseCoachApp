@@ -16,8 +16,13 @@ import android.widget.TextView;
 
 
 
+
+
 public class HomeFragment extends android.support.v4.app.Fragment {
     private MyViewModel model;
+
+
+
 
 
     @Nullable
@@ -25,25 +30,15 @@ public class HomeFragment extends android.support.v4.app.Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, null);
         TextView score = view.findViewById(R.id.score);
+        ImageView face = view.findViewById(R.id.face);
+        Integer v2;
 
-        ImageView happy = view.findViewById(R.id.happy);
-        ImageView angry = view.findViewById(R.id.angry);
-        ImageView dog = view.findViewById(R.id.ivDog);
-        model = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
-
-        if (model.angry >= 1) {
-            //1 red, Angry face
-            happy.setVisibility(View.GONE);
-            angry.setVisibility(View.VISIBLE);
-        } else {
-            happy.setVisibility(View.VISIBLE);
-            angry.setVisibility(View.GONE);
+        v2 = 0;
+        if (v2 > 0) {
+            face.setImageDrawable(getResources().getDrawable(R.drawable.angryface));
         }
-        if (model.angry == 0) {
-            score.setText("40");
-        }
-        if (model.angry == 0) {
-            score.setText("60");
+        else {
+            face.setImageDrawable(getResources().getDrawable(R.drawable.smileyface));
         }
 
 
@@ -52,6 +47,7 @@ public class HomeFragment extends android.support.v4.app.Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
 
     }
 }

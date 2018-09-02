@@ -39,15 +39,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        bLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
-                LoginActivity.this.startActivity(loginIntent);
-            }
-        });
 
-        /*bLogin.setOnClickListener(new View.OnClickListener() {
+        bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String username = etUser.getText().toString();
@@ -90,6 +83,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        });*/
+        });
     }
 }
