@@ -15,13 +15,17 @@ import android.content.Context;
 import android.widget.TextView;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GadgetsFragment extends android.support.v4.app.Fragment  {
-    private MyViewModel model;
+
+    Context mContext;
+
+
 
 
 
@@ -31,7 +35,15 @@ public class GadgetsFragment extends android.support.v4.app.Fragment  {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_gadgets, null);
         TextView name = view.findViewById(R.id.gName);
-        ImageView dog = view.findViewById(R.id.ivDog);
+        ImageView glasses = view.findViewById(R.id.ivGlasses);
+        Button b = view.findViewById(R.id.b);
+        mContext = getContext();
+        Boolean fGlasses = KeyValueDB.getGadget1(getContext());
+        if (fGlasses == true) {
+            b.setVisibility(View.GONE);
+        }
+
+
 
 
         return view;
@@ -41,18 +53,20 @@ public class GadgetsFragment extends android.support.v4.app.Fragment  {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         final Button b = view.findViewById(R.id.b);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               b.setVisibility(View.GONE);
-               //model.gClicked = 1;
-
-
-
-
-
+                int score = KeyValueDB.getscore(getContext());
+                int price = Integer.parseInt(b.getText().toString());
+                if (score < price) {
+                    Toast.makeText(getActivity(), "You don't have enough points!", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    b.setVisibility(View.GONE);
+                    KeyValueDB.setGadget1(mContext, true);
+                    KeyValueDB.setscore(mContext, score - price);
+                }
             }
         });
 

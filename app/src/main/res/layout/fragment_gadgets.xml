@@ -5,21 +5,22 @@
     android:layout_height="match_parent">
 
    <ImageView
-       android:id="@+id/ivDog"
+       android:id="@+id/ivGlasses"
        android:layout_width="120dp"
        android:layout_height="120dp"
-       android:src="@drawable/dog"
+       android:src="@drawable/sunglasses"
        android:layout_alignParentTop="true"
        android:layout_marginTop="20dp"
+       android:layout_marginLeft="10dp"
        />
 
     <TextView
         android:id="@+id/gName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Happy dog"
-        android:layout_toRightOf="@+id/ivDog"
-        android:layout_toEndOf="@+id/ivDog"
+        android:text="Sunglasses"
+        android:layout_toRightOf="@+id/ivGlasses"
+        android:layout_toEndOf="@+id/ivGlasses"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -31,13 +32,13 @@
         android:id="@+id/b"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_toRightOf="@+id/ivDog"
-        android:layout_toEndOf="@+id/ivDog"
+        android:layout_toRightOf="@+id/ivGlasses"
+        android:layout_toEndOf="@+id/ivGlasses"
         android:layout_marginLeft="120dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="70dp"
         android:background="@color/colorAccent"
-        android:text="50 points"
+        android:text="50"
         android:visibility="visible"/>
 
 

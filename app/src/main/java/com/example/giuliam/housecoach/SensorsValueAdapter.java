@@ -78,22 +78,28 @@ public class SensorsValueAdapter extends ArrayAdapter {
         //dust sensor
         if (v1 > 0) {                                                            //set exact limits
             sensorsValueHolder.tx_value1.setTextColor(rgb(255, 0, 0));
+            KeyValueDB.setv1(getContext(), 0);
         } else {
             sensorsValueHolder.tx_value1.setTextColor(rgb(0, 180, 0));
+            KeyValueDB.setv1(getContext(), 1);
         }
 
         //bin sensor for laundry
         if (v2 < 10) {                                                            //set exact limits
             sensorsValueHolder.tx_value2.setTextColor(rgb(255, 0, 0));
+            KeyValueDB.setv2(getContext(), 0);
         } else {
             sensorsValueHolder.tx_value2.setTextColor(rgb(0, 180, 0));
+            KeyValueDB.setv2(getContext(), 1);
         }
 
         //bin sensor for garbage
         if (v3 < 10) {                                                            //set exact limits
             sensorsValueHolder.tx_value3.setTextColor(rgb(255, 0, 0));
+            KeyValueDB.setv3(getContext(), 0);
         } else {
             sensorsValueHolder.tx_value3.setTextColor(rgb(0, 180, 0));
+            KeyValueDB.setv3(getContext(), 1);
         }
 
         sensorsValueHolder.tx_value4.setText(sensorsValue.getValue4());
