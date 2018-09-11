@@ -31,7 +31,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".RegisterActivity" />
 
-        <receiver android:name=".AlertReceiver" />
+        <receiver
+            android:name=".AlertReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action._BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
 
         <activity android:name=".DisplayTasks"></activity>
 

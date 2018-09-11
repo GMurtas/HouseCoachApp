@@ -22,6 +22,7 @@ public class HomeFragment extends android.support.v4.app.Fragment {
    Boolean gadget;
    Integer v1, v2, v3;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -31,30 +32,37 @@ public class HomeFragment extends android.support.v4.app.Fragment {
         String scoreText;
         scoreText = Integer.toString(KeyValueDB.getscore(getContext()));
         score.setText(scoreText);
+        Boolean glassesOn;
+
+        //reset deltaScore
+        //KeyValueDB.setdelta(getContext(), 0);
+        //reset score
+        //KeyValueDB.setscore(getContext(), 0);
 
         v1 = KeyValueDB.getv1(getContext());
         v2 = KeyValueDB.getv2(getContext());
         v3 = KeyValueDB.getv3(getContext());
-        KeyValueDB.setGadget1(getContext(), false); //---to be commented to reset bought gadget
+       // KeyValueDB.setGadget1(getContext(), false); //---to be commented to reset bought gadget
 
         gadget = KeyValueDB.getGadget1(getContext());
+        glassesOn = KeyValueDB.getGlassesOn(getContext());
 
         if (v1+v2+v3 == 3) {
-            if (gadget == true)
+            if (gadget == true && glassesOn == true)
                 face.setImageDrawable(getResources().getDrawable(R.drawable.smileyglasses));
             else
                 face.setImageDrawable(getResources().getDrawable(R.drawable.smileyface));
         }
 
         else if (v1+v2+v3 == 2) {
-            if (gadget == true)
+            if (gadget == true && glassesOn == true)
                 face.setImageDrawable(getResources().getDrawable(R.drawable.annoyedglasses));
             else
                 face.setImageDrawable(getResources().getDrawable(R.drawable.annoyed));
         }
 
         else {
-            if (gadget == true)
+            if (gadget == true && glassesOn == true)
                 face.setImageDrawable(getResources().getDrawable(R.drawable.angryglasses));
             else
                 face.setImageDrawable(getResources().getDrawable(R.drawable.angryface));

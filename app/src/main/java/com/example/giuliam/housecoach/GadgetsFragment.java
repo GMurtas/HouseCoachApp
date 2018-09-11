@@ -37,10 +37,15 @@ public class GadgetsFragment extends android.support.v4.app.Fragment  {
         TextView name = view.findViewById(R.id.gName);
         ImageView glasses = view.findViewById(R.id.ivGlasses);
         Button b = view.findViewById(R.id.b);
+        Button gOn = view.findViewById(R.id.gOn);
+        gOn.setVisibility(View.GONE);
         mContext = getContext();
         Boolean fGlasses = KeyValueDB.getGadget1(getContext());
-        if (fGlasses == true) {
-            b.setVisibility(View.GONE);
+        //KeyValueDB.setGadget1(getContext(), false); // to be commented
+            if (fGlasses == true) {
+                b.setVisibility(View.GONE);
+                gOn.setVisibility(View.VISIBLE);
+
         }
 
 
@@ -54,6 +59,7 @@ public class GadgetsFragment extends android.support.v4.app.Fragment  {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         final Button b = view.findViewById(R.id.b);
+        final Button gOn = view.findViewById(R.id.gOn);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +72,22 @@ public class GadgetsFragment extends android.support.v4.app.Fragment  {
                     b.setVisibility(View.GONE);
                     KeyValueDB.setGadget1(mContext, true);
                     KeyValueDB.setscore(mContext, score - price);
+                    gOn.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        gOn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Boolean on;
+                on = KeyValueDB.getGlassesOn(getContext());
+                if (on == true) {  //glasses are on at the moment, clicking takes them off
+                    KeyValueDB.setGlassesOn(mContext, false);
+                    gOn.setText("Put them on");
+                } else {
+                    KeyValueDB.setGlassesOn(mContext, true);
+                    gOn.setText("Take them off");
                 }
             }
         });

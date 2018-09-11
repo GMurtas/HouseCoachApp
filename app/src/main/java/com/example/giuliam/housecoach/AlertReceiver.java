@@ -25,7 +25,8 @@ public class AlertReceiver extends BroadcastReceiver {
         NotificationCompat.Builder nb = notificationHelper.getChannelNotification(title, message);
         notificationHelper.getManager().notify(1, nb.build());
 
-        if (intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) { //notification should be sent even if device is rebooted
+
+        if ("android.intent.action.BOOT_COMPLETED".equals(intent.getAction())) { //notification should be sent even if device is rebooted
             notificationHelper.getManager().notify(1, nb.build());
         }
 

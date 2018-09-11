@@ -47,8 +47,17 @@ public class SensorsValueAdapter extends ArrayAdapter {
         View row;
         row = convertView;
         SensorsValueHolder sensorsValueHolder;
-        int  v2, v3, v4;
+        Integer  v2, v3, v4;
         Float v1;
+        Integer previous, current;
+        Integer delta = 0;
+        ///////
+        //KeyValueDB.setdelta(getContext(), 0);
+        //set all sensor values to zero; now
+        //KeyValueDB.setv1(getContext(), 0);
+        //KeyValueDB.setv2(getContext(), 0);
+        //KeyValueDB.setv3(getContext(), 0);
+
         if(row==null) {
             LayoutInflater layoutInflater = (LayoutInflater)this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = layoutInflater.inflate(R.layout.row_layout,parent,false);
@@ -68,7 +77,7 @@ public class SensorsValueAdapter extends ArrayAdapter {
         v1 = Float.parseFloat(sensorsValue.getValue1());
         v2 = Integer.parseInt(sensorsValue.getValue2());
         v3 = Integer.parseInt(sensorsValue.getValue3());
-        v4 = Integer.parseInt(sensorsValue.getValue4());
+        //v4 = Integer.parseInt(sensorsValue.getValue4());
 
         //Value_1 is dust, 2 and 3 are bins; 2 for laundry, 3 for garbage
         sensorsValueHolder.tx_value1.setText("Dust in the room");
@@ -76,33 +85,49 @@ public class SensorsValueAdapter extends ArrayAdapter {
         sensorsValueHolder.tx_value3.setText("Garbage");
 
         //dust sensor
+        previous = KeyValueDB.getv1(getContext());
         if (v1 > 0) {                                                            //set exact limits
             sensorsValueHolder.tx_value1.setTextColor(rgb(255, 0, 0));
             KeyValueDB.setv1(getContext(), 0);
         } else {
             sensorsValueHolder.tx_value1.setTextColor(rgb(0, 180, 0));
             KeyValueDB.setv1(getContext(), 1);
+            if (previous == 0)
+                delta++;
         }
 
         //bin sensor for laundry
+        previous = KeyValueDB.getv2(getContext());
         if (v2 < 10) {                                                            //set exact limits
             sensorsValueHolder.tx_value2.setTextColor(rgb(255, 0, 0));
             KeyValueDB.setv2(getContext(), 0);
         } else {
             sensorsValueHolder.tx_value2.setTextColor(rgb(0, 180, 0));
             KeyValueDB.setv2(getContext(), 1);
+            if (previous == 0)
+                delta++;
         }
 
         //bin sensor for garbage
+        previous = KeyValueDB.getv3(getContext());
         if (v3 < 10) {                                                            //set exact limits
             sensorsValueHolder.tx_value3.setTextColor(rgb(255, 0, 0));
             KeyValueDB.setv3(getContext(), 0);
         } else {
             sensorsValueHolder.tx_value3.setTextColor(rgb(0, 180, 0));
             KeyValueDB.setv3(getContext(), 1);
+            if (previous == 0)
+                delta++;
         }
 
-        sensorsValueHolder.tx_value4.setText(sensorsValue.getValue4());
+        KeyValueDB.setdelta(getContext(), delta);
+        Integer score, savedScore;
+        score = delta;
+        savedScore = KeyValueDB.getscore(getContext());
+        KeyValueDB.setscore(getContext(), score + savedScore);
+        KeyValueDB.setdelta(getContext(), 0);
+
+        //sensorsValueHolder.tx_value4.setText(sensorsValue.getValue4());
         return row;
     }
 

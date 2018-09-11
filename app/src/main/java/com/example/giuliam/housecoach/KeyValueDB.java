@@ -67,6 +67,28 @@ public class KeyValueDB {
         editor.putInt("score", score);
         editor.commit();
     }
+
+    public static Integer getdelta(Context context) {
+        return getPrefs(context).getInt("delta", 0);
+    }
+
+    public static void setdelta(Context context, Integer delta) {
+        SharedPreferences.Editor editor = getPrefs(context).edit();
+        editor.putInt("delta", delta);
+        editor.commit();
+    }
+
+    //True if glasses are on, false when not wearing them; modified by button in gadgetsFragment
+    public static Boolean getGlassesOn(Context context) {
+        return getPrefs(context).getBoolean("glassesOn", false);
+    }
+
+    public static void setGlassesOn(Context context, Boolean glassesOn) {
+        SharedPreferences.Editor editor = getPrefs(context).edit();
+        editor.putBoolean("glassesOn",glassesOn);
+        editor.commit();
+    }
+
 }
 
 

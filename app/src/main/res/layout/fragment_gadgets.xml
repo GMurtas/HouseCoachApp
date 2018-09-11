@@ -42,4 +42,16 @@
         android:visibility="visible"/>
 
 
+    <Button
+        android:id="@+id/gOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Put them on"
+        android:textSize="10sp"
+        android:layout_toRightOf="@id/ivGlasses"
+        android:layout_below="@id/gName"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+
+
 </RelativeLayout>
